@@ -1,1 +1,2 @@
-export { TransportConfig, Transport, defaultConfig } from './base'
+export { Transport, defaultConfig } from './base.js'
+export { findLogDirectory } from './files.js'
