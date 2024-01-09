@@ -1,8 +1,5 @@
-import { findLogDirectory } from './transports/index.js'
-import { Transport, defaultConfig } from './transports/base.js'
+import { BaseTransport } from './transports/transports.js'
 
-export {
-  Transport,
-  defaultConfig,
-  findLogDirectory,
-}
+const transport = new BaseTransport()
+
+transport.log(['Hello World !', 'my logging is working'])
