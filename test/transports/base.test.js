@@ -1,4 +1,4 @@
-import { Transport } from './base'
+import { Transport } from '../../src/transports'
 
 describe('transport', () => {
   const mockConfig = {
