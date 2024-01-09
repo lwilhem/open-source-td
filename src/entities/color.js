@@ -1,20 +1,26 @@
-/**
- * 
- * @param {String} level -The level of the message, being either 'success', 'info', 'warn' or 'error'
- * @returns {String} -A color corresponding to the level
- */
+const red = "\u001B[31m";
+const green = "\u001B[32m";
+const yellow = "\u001B[33m";
+const blue = "\u001B[34m";
+const white = "\u001B[37m";
+const reset = "\u001B[0m";
 
-export function colorMessage(level){
+/**
+ * @param {String} level -The level of the message, being either 'success', 'info', 'warn' or 'error'
+ * @param {String} message -The message converted to a string format
+ * @returns {String} -The message colored differently depending on the level parameter
+ */
+export function colorByLevel(level,message){
   switch(level){
     case 'success':
-      return "#00FF00";
+      return green + message + reset;
     case 'info':
-      return "#0000FF";
+      return blue + message + reset;
     case 'warn':
-      return "FFFF00";
+      return yellow + message + reset;
     case 'error':
-      return "FF0000";
+      return red + message + reset;
     default:
-      return "#FFFFFF";
+      return white + message + reset;
     }
 }
