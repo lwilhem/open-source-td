@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { accessSync, mkdirSync } from 'node:fs'
+import fs from 'node:fs'
 import path from 'node:path'
 
 /**
@@ -12,12 +12,12 @@ export function findLogDirectory(dir = 'logs') {
   const log_directory = path.join(current_dir, dir)
 
   try {
-    accessSync(log_directory)
+    fs.accessSync(log_directory)
     console.log(`Log directory found at ${log_directory}`)
   }
   catch (err) {
     console.error('Log directory not found, creating...')
-    mkdirSync(log_directory)
+    fs.mkdirSync(log_directory)
   }
 
   return {

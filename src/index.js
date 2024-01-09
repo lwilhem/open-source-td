@@ -1,3 +1,8 @@
 import { findLogDirectory } from './transports/index.js'
+import { Transport, defaultConfig } from './transports/base.js'
 
-findLogDirectory()
+export {
+  Transport,
+  defaultConfig,
+  findLogDirectory,
+}
