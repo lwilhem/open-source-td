@@ -9,6 +9,7 @@ export class BaseTransport {
       this.formatters = opts.formatters
   }
 
+  // todo: Move out logic to specific transporter ?
   transporter(message) {
     process.stdout.write(`${message}\n`)
   }
