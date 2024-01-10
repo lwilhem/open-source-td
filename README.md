@@ -11,4 +11,29 @@ A brief description of what this project does and who it's for
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install foobar.
+This project can be installed using npm, yarn, or pnpm.
+
+```bash
+// With npm
+npm install --save-dev nomdupackage
+
+// With pnpm
+pnpm install -D nomdupackage
+
+// With Yarn
+yarn install -D nomdupackage
+```
+
+## Usage
+
+```js
+import A3Logger, { defaultConfig } from 'nomdupackage'
+
+const logger = new A3Logger(defaultConfig)
+
+// ...
+
+logger.log('log')
+logger.error('log')
+logger.success('log')
+```

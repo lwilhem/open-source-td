@@ -1,5 +1,3 @@
-import { BaseTransport } from './transports/transports.js'
-
-const transport = new BaseTransport()
-
-transport.log(['Hello World !', 'my logging is working'])
+export * from './entities/index.js'
+export * from './transports/index.js'
+export * from './formatters/index.js'
