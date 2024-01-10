@@ -1,20 +1,14 @@
 /**
- * @template {import("../entities/index.js").PreparedMessage} T
+ * @template {import("../entities/prepare_message.js").PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
 /**
  *
- * @returns {Formatter<import("../entities/index.js").PreparedMessage>} return chainable output
+ * @returns {Formatter<import("../entities/prepare_message.js").PreparedMessage>} return chainable output
  */
 export function format_levels() {
   return (current_message, context) => {
-    const toPad = Math.floor((7 - context.level.length) / 2)
-    const levelString
-      = context.level.length % 2 === 0
-        ? `${' '.repeat(toPad)}${context.level}${' '.repeat(toPad + 1)}`
-        : `${' '.repeat(toPad)}${context.level}${' '.repeat(toPad)}`
-
-    return `\u001B[1m[${levelString}]\u001B[22m ${current_message}`
+    return `\u001B[1m[${context.level}]\u001B[22m ${current_message}`
   }
 }

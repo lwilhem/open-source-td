@@ -1,11 +1,11 @@
 /**
- * @template {PreparedMessage} T
+ * @template {import("../entities/prepare_message.js").PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
 /**
  *
- * @returns {Formatter<import("../entities/index.js").PreparedMessage>} return chainable output
+ * @returns {Formatter<import("../entities/prepare_message.js").PreparedMessage>} return chainable output
  */
 export function format_colors() {
   return (current_message, context) => {
@@ -15,28 +15,28 @@ export function format_colors() {
 
 /**
  *
- * @param {import("../entities/index.js").Levels} level
+ * @param {string} level
  * @param {string} message
  * @returns {string} colorized message
  */
 export function colorize_by_level(level, message) {
   switch (level) {
-    case level.SUCCESS: {
-      return `\u001B[32m${message}\u001B[0m`
+    case 'success': {
+      return `\u001B[31m${message}\u001B[31m`
     }
-    case level.WARNING: {
+    case 'warn': {
       return `\u001B[33m${message}\u001B[0m`
     }
-    case level.INFO: {
+    case 'info': {
       return message
     }
-    case level.ERROR: {
-      return `\u001B[31m${message}\u001B[0m`
+    case 'error': {
+      return `\u001B[31m${message}\u001B[31m`
     }
-    case level.DEBUG: {
+    case 'debug': {
       return `\u001B[34m${message}\u001B[0m`
     }
-    case level.TRACE: {
+    case 'trace': {
       return `\u001B[34m${message}\u001B[0m`
     }
     default: {

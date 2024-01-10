@@ -2,7 +2,7 @@ import process from 'node:process'
 import { BaseTransport } from './base_transport.js'
 
 /**
- * @template {import("../entities/index.js").PreparedMessage} T
+ * @template {import("../entities/prepare_message.js").PreparedMessage} T
  * @extends {BaseTransport<T>}
  */
 export class ConsoleTransport extends BaseTransport {
@@ -15,19 +15,19 @@ export class ConsoleTransport extends BaseTransport {
    * @returns {void}
    */
   transport(log) {
-    process.stdout.write(log)
+    console.log(log)
   }
 
   /**
    *
    * @param {T} log
+   * @returns {void}
    */
   log(log) {
     const messages = this.prepare_log(log)
 
-    messages.forEach(msg => this.format(msg))
+    const to_send = messages.map(msg => this.format(msg))
 
-    for (const message in messages)
-      this.log(message)
+    to_send.forEach(message => this.transport(message))
   }
 }

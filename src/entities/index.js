@@ -1,2 +1,2 @@
-export { PreparedMessage, prepare_message } from './prepare_message.js'
-export { levels, Levels } from './levels.js'
+export { prepare_message } from './prepare_message.js'
+export { levels } from './levels.js'

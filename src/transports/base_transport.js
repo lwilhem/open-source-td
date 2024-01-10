@@ -1,7 +1,7 @@
 import { format_colors, format_levels, format_timestamp } from '../formatters/index.js'
 
 /**
- * @template {import("../entities/index.js").PreparedMessage} T
+ * @template {import("../entities/prepare_message.js").PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
@@ -13,13 +13,13 @@ import { format_colors, format_levels, format_timestamp } from '../formatters/in
 
 /**
  * BaseTransport class represents a base transport for sending messages.
- * @template {import("../entities/index.js").PreparedMessage} T
+ * @template {import("../entities/prepare_message.js").PreparedMessage} T
  */
 export class BaseTransport {
   /**
    * @type {Formatter<T>[]}
    */
-  formatters = [format_levels(), format_colors(), format_timestamp()]
+  formatters = [format_timestamp(), format_colors()]
 
   constructor(opts) {
     if (opts && opts.formatters)
@@ -31,7 +31,18 @@ export class BaseTransport {
    * @returns {T[]} prepared log
    */
   prepare_log(log) {
-    return log.message.split('\n').map(message => ({ ...log, message }))
+    if (typeof log.message !== 'string')
+      throw new Error('log.message must be a string')
+
+    const out = log.message.split('\n').map((message) => {
+      return {
+        level: log.level,
+        timestamp: log.timestamp,
+        message,
+      }
+    })
+
+    return out
   }
 
   /**
