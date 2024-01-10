@@ -6,7 +6,7 @@
   "main": "./src/index.js",
   "scripts": {
     "lint": "eslint . --fix",
-    "test": "jest",
+    "unit:test": "jest",
     "release": "release-it"
   },
   "devDependencies": {
