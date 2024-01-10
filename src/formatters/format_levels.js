@@ -1,15 +1,11 @@
 /**
- * @typedef {import("../entities/index.js").PreparedMessage} PreparedMessage
- */
-
-/**
- * @template {PreparedMessage} T
+ * @template {import("../entities/index.js").PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
 /**
  *
- * @returns {Formatter<PreparedMessage>} return chainable output
+ * @returns {Formatter<import("../entities/index.js").PreparedMessage>} return chainable output
  */
 export function format_levels() {
   return (current_message, context) => {

@@ -1,16 +1,11 @@
 /**
- * @typedef {import("../entities/index.js").PreparedMessage} PreparedMessage
- * @typedef {import("../entities/index.js").Levels} Levels
- */
-
-/**
  * @template {PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
 /**
  *
- * @returns {Formatter<PreparedMessage>} return chainable output
+ * @returns {Formatter<import("../entities/index.js").PreparedMessage>} return chainable output
  */
 export function format_colors() {
   return (current_message, context) => {
@@ -20,7 +15,7 @@ export function format_colors() {
 
 /**
  *
- * @param {Levels} level
+ * @param {import("../entities/index.js").Levels} level
  * @param {string} message
  * @returns {string} colorized message
  */

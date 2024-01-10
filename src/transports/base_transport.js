@@ -1,23 +1,19 @@
 import { format_colors, format_levels, format_timestamp } from '../formatters/index.js'
 
 /**
- * @typedef {import("../entities/index.js").PreparedMessage} PreparedMessage
- */
-
-/**
- * @template {PreparedMessage} T
+ * @template {import("../entities/index.js").PreparedMessage} T
  * @typedef {(current: string, context: T) => string} Formatter
  */
 
 /**
  * @typedef {object} BaseOptions
- * @template {PreparedMessage} T
+ * @template {import("../entities/index.js").PreparedMessage} T
  * @property {Formatter<T>} formatters - formatter functions
  */
 
 /**
  * BaseTransport class represents a base transport for sending messages.
- * @template {PreparedMessage} T
+ * @template {import("../entities/index.js").PreparedMessage} T
  */
 export class BaseTransport {
   /**
