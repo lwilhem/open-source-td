@@ -6,4 +6,9 @@ export * from './formatters/index.js'
 
 const logger = new A3TDLogger()
 
-logger.warn('hello World')
+logger.warn('warn')
+logger.debug('debug')
+logger.info('info')
+logger.error('error')
+logger.trace('trace')
+logger.success('success')

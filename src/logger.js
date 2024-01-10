@@ -68,4 +68,34 @@ export class A3TDLogger {
   warn(message) {
     this._log(levels.WARNING, message)
   }
+
+  /**
+   *
+   * @param {string} message
+   */
+  error(message) {
+    this._log(levels.ERROR, message)
+  }
+
+  /**
+   *
+   * @param {string} message
+   */
+  debug(message) {
+    this._log(levels.DEBUG, message)
+  }
+
+  /**
+   * @param {string} message
+   */
+  success(message) {
+    this._log(levels.SUCCESS, message)
+  }
+
+  /**
+   * @param {string} message
+   */
+  trace(message) {
+    this._log(levels.TRACE, message)
+  }
 }

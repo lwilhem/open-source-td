@@ -22,7 +22,7 @@ export function format_colors() {
 export function colorize_by_level(level, message) {
   switch (level) {
     case 'success': {
-      return `\u001B[31m${message}\u001B[31m`
+      return `\u001B[32m${message}\u001B[32m`
     }
     case 'warn': {
       return `\u001B[33m${message}\u001B[0m`
